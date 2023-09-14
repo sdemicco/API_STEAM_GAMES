@@ -1,22 +1,22 @@
-,genres,horas
-0,Action,3105399977.0
-1,Indie,1491571375.0
-2,RPG,1038661674.0
-3,Adventure,908109517.0
-4,Simulation,865791647.0
-5,Strategy,657904392.0
-6,Free to Play,609465341.0
-7,Massively Multiplayer,445508962.0
-8,Casual,251757677.0
-9,Early Access,158275040.0
-10,Sports,65478776.0
-11,Racing,63554809.0
-12,Utilities,4697527.0
-13,Design &amp; Illustration,4102232.0
-14,Web Publishing,2779819.0
-15,Video Production,2408844.0
-16,Animation &amp; Modeling,2006518.0
-17,Software Training,571028.0
-18,Audio Production,555997.0
-19,Education,414774.0
-20,Photo Editing,115424.0
+,rank,genres,horas
+0,0,Action,3105399977.0
+1,1,Indie,1491571375.0
+2,2,RPG,1038661674.0
+3,3,Adventure,908109517.0
+4,4,Simulation,865791647.0
+5,5,Strategy,657904392.0
+6,6,Free to Play,609465341.0
+7,7,Massively Multiplayer,445508962.0
+8,8,Casual,251757677.0
+9,9,Early Access,158275040.0
+10,10,Sports,65478776.0
+11,11,Racing,63554809.0
+12,12,Utilities,4697527.0
+13,13,Design &amp; Illustration,4102232.0
+14,14,Web Publishing,2779819.0
+15,15,Video Production,2408844.0
+16,16,Animation &amp; Modeling,2006518.0
+17,17,Software Training,571028.0
+18,18,Audio Production,555997.0
+19,19,Education,414774.0
+20,20,Photo Editing,115424.0
