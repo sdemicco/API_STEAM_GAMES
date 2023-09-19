@@ -8,14 +8,20 @@ from fastapi import FastAPI, Path
 app = FastAPI( title= "Consulta base de datos Steam Games",
               description= "Permite realizar consultas sobre Steam-games")
 
+@app.get("/")
+async def index():
+    message = "¡Bienvenido. En esta API podrá consultar y recibir recomendaciones Videojuegos!"
+    return {"message": message}
+
+
 # Leer los archivos .parquet para el consumo de la API
-df_userdata1 = pd.read_csv("userdata_1")
-df_userdata2 = pd.read_csv("userdata_2")
-df_cr=pd.read_csv('countreviews') 
-df_genre= pd.read_csv("genre")
-df_userforgenre=pd.read_csv("userforgenre")
-df_developer=pd.read_csv("developer")
-df_sentiment_analysis=pd.read_csv("sentiment_analysis")
+df_userdata1 = pd.read_parquet("Datasets/userdata_1_p")
+df_userdata2 = pd.read_parquet("Datasets/userdata_2_p")
+df_cr=pd.read_parquet("Datasets/countreviews_p") 
+df_genre= pd.read_parquet("Datasets/genre_p")
+df_userforgenre=pd.read_parquet("Datasets/userforgenre_p")
+df_developer=pd.read_parquet("Datasets/developer_p")
+df_sentiment_analysis=pd.read_parquet("Datasets/sentiment_analysis_p")
 
 
 
@@ -63,7 +69,7 @@ async def countreviews(fecha_inicio: str = Path(..., title="Query parameter exam
  
  # Ruta función 3
 @app.get("/genre/{genre}", name="genre")
-async def genre(genre: str = Path(..., title="Query parameter example", example="SOFTWARE TRAINING")):
+async def genre(genre: str = Path(..., title="Query parameter example", example="Action")):
     '''
     Se ingresa un genero y devuelve el puesto en el que se encuentra en un ranking 
     basado en el tiempo de juego total de cada genero.
@@ -84,7 +90,7 @@ async def genre(genre: str = Path(..., title="Query parameter example", example=
 
 # ruta función 4
 @app.get("/usergenre/{genre}", name="genre")
-async def userforgenre (genre:str = Path(..., title="Query parameter example", example="SOFTWARE TRAINING")):
+async def userforgenre (genre:str = Path(..., title="Query parameter example", example="Action")):
     '''
     Se ingresa un genero y devuelve un top 5 de usuarios con más horas de juego en el género dado, con su URL (del user) y user_id.
     '''
@@ -97,7 +103,7 @@ async def userforgenre (genre:str = Path(..., title="Query parameter example", e
 
 #ruta funcion 5
 @app.get("/developer/{desarrollador}", name="desarrollador")
-async def developer (desarrollador: str = Path(..., title="Query parameter example", example="ACTIVISION")):
+async def developer (desarrollador: str = Path(..., title="Query parameter example",description='Escribir en Mayuscula', example="ACTIVISION")):
     '''
     Se ingresa desarrollador y devuelve cantidad de items y porcentaje de contenido Free 
     por año según empresa desarrolladora
