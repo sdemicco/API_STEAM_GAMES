@@ -12,8 +12,8 @@ Disponibilizar los datos de Steam Games mediante una API web para permitir su co
 
 ## Planificacion del desarrollo de proyecto:
 
-1
-![Flujo de trabajo](
+
+
 
 
 
