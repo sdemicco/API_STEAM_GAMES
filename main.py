@@ -22,8 +22,10 @@ df_genre= pd.read_parquet("Datasets/genre_p")
 df_userforgenre=pd.read_parquet("Datasets/userforgenre_p")
 df_developer=pd.read_parquet("Datasets/developer_p")
 df_sentiment_analysis=pd.read_parquet("Datasets/sentiment_analysis_p")
+df_steam_final=pd.read_parquet("Datasets/df_steam_final_p")
 
-
+from sklearn.metrics.pairwise import cosine_similarity
+similitudes = cosine_similarity(df_steam_final.iloc[:,1:])
 
 # Ruta funcion 1
 @app.get("/userdata/{user_id}", name = "userdata (user_id)")
@@ -125,3 +127,11 @@ async def sentiment_analysis(anio: str = Path(..., title="Query parameter exampl
     df_s = df_sentiment_analysis[df_sentiment_analysis['año_posted'] == anio]
     dic= df_s.to_dict(orient = 'records')
     return dic
+
+#ruta funcion 7
+@app.get("/recomendacion/{indice}", name="indice")
+async def recomendacion(indice: str = Path(..., title="Query parameter example", example="59")):
+  indice=int(indice)
+  index_recommended = pd.DataFrame(similitudes).iloc[indice].sort_values(ascending = False).index[1]
+  respuesta = df_steam_final['app_name'].iloc[index_recommended]
+  return respuesta
