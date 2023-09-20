@@ -1,5 +1,5 @@
 # API_STEAM_GAMES
-Desarrollo de API para disponibilizacion de informacion y recomendaciones de videojuegos de la plataforma Steam Games
+*Desarrollo de API para disponibilizacion de informacion y determinacion de recomendaciones de videojuegos de la plataforma Steam Games*
 ***
 
 Objetivo: 
