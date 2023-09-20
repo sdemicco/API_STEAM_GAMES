@@ -41,7 +41,7 @@ async def userdata(user_id: str = Path(..., title="Query parameter example", exa
     #Calcula gasto y porcentaje
     valor1=df1_filtrado.gasto.iloc[0]
     valor2=df2_filtrado.porcentaje.iloc[0]
-     valor3= df2_filtrado.totalit.iloc[0]
+    valor3= df2_filtrado.totalit.iloc[0].item()
     return  {'dinero gastado' : valor1,'porcecntaje_recom':valor2,'cantidad_items':valor3}
  
 
