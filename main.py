@@ -23,7 +23,7 @@ df_userforgenre=pd.read_parquet("Datasets/userforgenre_p")
 df_developer=pd.read_parquet("Datasets/developer_p")
 df_sentiment_analysis=pd.read_parquet("Datasets/sentiment_analysis_p")
 df_steam_final=pd.read_parquet("Datasets/df_steam_final_p")
-
+nombres= pd.read_parquet("Datasets/nombres_p")
 from sklearn.metrics.pairwise import cosine_similarity
 similitudes = cosine_similarity(df_steam_final.iloc[:,1:])
 
@@ -129,9 +129,12 @@ async def sentiment_analysis(anio: str = Path(..., title="Query parameter exampl
     return dic
 
 #ruta funcion 7
-@app.get("/recomendacion/{indice}", name="indice")
-async def recomendacion(indice: str = Path(..., title="Query parameter example", example="59")):
-  indice=int(indice)
-  index_recommended = pd.DataFrame(similitudes).iloc[indice].sort_values(ascending = False).index[1]
-  respuesta = df_steam_final['app_name'].iloc[index_recommended]
-  return respuesta
+@app.get("/recomendacion/{juego}", name="juego")
+async def recomendacion(juego: str = Path(..., title="Query parameter example",description='Escribir en Mayuscula',example="IRONBOUND")):
+    juego_index=nombres[nombres['app_name']==juego]['index'] 
+    if juego_index.empty:
+        return { 'error': 'Game not found' }  
+    juego_index_valor = juego_index.iloc[0]
+    simil = sorted(enumerate(cosine_similarity(df_steam_final.iloc[[juego_index_valor]], df_steam_final).flatten()), key=lambda x: x[1], reverse=True)[1:6]                                                  
+    recomendaciones = nombres.iloc[[i[0] for i in simil], :]['app_name'].tolist()                          
+    return recomendaciones
