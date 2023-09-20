@@ -12,7 +12,7 @@ Disponibilizar los datos de Steam Games mediante una API web para permitir su co
 
 ## Planificacion del desarrollo de proyecto:
 
-<image src=""/assets/Flujo de trabajo.png" alt="Flujo de Trabajo">
+
 
 
 
