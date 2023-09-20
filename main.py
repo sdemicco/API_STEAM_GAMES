@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import pandas as pd
 from fastapi import FastAPI, Path
+from sklearn.metrics.pairwise import cosine_similarity
 
 # Genro una app
 #http://127.0.0.1:8000
@@ -24,8 +25,6 @@ df_developer=pd.read_parquet("Datasets/developer_p")
 df_sentiment_analysis=pd.read_parquet("Datasets/sentiment_analysis_p")
 df_steam_final=pd.read_parquet("Datasets/df_steam_final_p")
 nombres= pd.read_parquet("Datasets/nombres_p")
-from sklearn.metrics.pairwise import cosine_similarity
-similitudes = cosine_similarity(df_steam_final.iloc[:,1:])
 
 # Ruta funcion 1
 @app.get("/userdata/{user_id}", name = "userdata (user_id)")
