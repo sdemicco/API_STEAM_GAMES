@@ -109,6 +109,8 @@ Primero construí la API de forma local configurando las funciones necesarias pa
  ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
+
+El análisis exploratorio de datos puede encontrarse en la notebook: :point_right: [EDA_ML](Notebooks/EDA_ML.ipynb)
  
 En el análisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instancia realicé un análisis de los datos ahora con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
 
