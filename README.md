@@ -66,19 +66,40 @@ La cual contiene 6 endpoints,y se pueden ver en el archivo [main.py](main.py)
 Primero se construyó la API de forma local y se configuraron las funciones necesarias para realizar las consultas, cargando la data desde los archivos 
 en [Datasets](Datasets)
 
-**Endpoints:**
+**Endpoints y ejemplo de respuestas:**
 * userdata( User_id : str ): Retorna cantidad de dinero gastado por el usuario, el porcentaje de recomendación en base a reviews.recommend y cantidad de items.<br>
+<br>
 
+```
+{"dinero gastado": 3424.3099999999854,"porcecntaje_recom": 1.083032490974729,"cantidad_items": 277}
+```
 * countreviews( YYYY-MM-DD y YYYY-MM-DD : str ):  Retorna Cantidad de usuarios que realizaron reviews entre las fechas dadas y, el porcentaje de recomendación de los mismos en base a reviews.recommend.<br>
-  
+```
+{"cantidad_usuarios": 517,"recomendacion": 0.9809523809523809}
+```
 * genre( género : str ): Retorna el puesto en el que se encuentra un género sobre el ranking de los mismos analizado bajo la columna PlayTimeForever.<br>
-
+```
+{"posicion en ranking": 1}
+```
 * userforgenre( género : str ): Retorna Top 5 de usuarios con más horas de juego en el género dado, con su URL (del user) y user_id.<br>
-
+``` 
+[{ "user_id": "Sp3ctre", "url": "http://steamcommunity.com/id/Sp3ctre"},
+  {"user_id": "shinomegami","url": "http://steamcommunity.com/id/shinomegami" },
+  { "user_id": "REBAS_AS_F-T","url": "http://steamcommunity.com/id/REBAS_AS_F-T"},
+  { "user_id": "Terminally-Chill", "url": "http://steamcommunity.com/id/Terminally-Chill"},
+  { "user_id": "DownSyndromeKid","url":]
+```
 * def developer( desarrollador : str ): Retorna la cantidad de items y porcentaje de contenido Free por año según empresa desarrolladora.<br>
-
+```
+[{ "year": 1993,"porcentaje_free": 0 },
+  {"year": 1996,"porcentaje_free": 0 },
+  {"year": 1997,"porcentaje_free": 0 },
+  {"year": 2000,"porcentaje_free": 0}]
+```
 * def sentiment_analysis( año : int ): Según el año de lanzamiento, retorna una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento.<br>
-
+```
+[{"año_posted": 2012,"positivo": 830,"negativo": 140,"neutral": 231 }]
+```
 imagen fast-api
 
 
