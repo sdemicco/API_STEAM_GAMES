@@ -53,7 +53,14 @@ user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinado
 Terminada la limpieza de los dataframes realicé los uniones y agrupaciones necesarias de datos para poder generar los dataframes y las funciónes que luego compondran el archivo main.py de la API. [datasets](Datasets)
 
 
+2) FAST - API :  Desarrollo de la API local.<br>
 
+Se propone el desarrollo de una API para disponibilizar los datos de la empresa a través del framework FastAPI. 
+Presentando 6 endpoints, en el archivo 
+
+Primero se construyó la API de forma local y se configuraron las funciones necesarias para realizar las consultas, cargando la data desde los archivos 
+
+Estos endpoints son los siguientes:
 
 
 
