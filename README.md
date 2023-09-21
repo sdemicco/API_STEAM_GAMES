@@ -37,6 +37,9 @@ user_reviews.json.gz: Contiene reseñas de ítems por usuario.<br>
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
+
+ La notebook de ETL puede encontrarse en : :point_right: [ETL](Notebooks/ETL.ipynb)
+ 
  
 #### **steam_games:**
 - Eliminé las columnas ('items','user_id','steam_id','items_count') del archivo 'steam_games' porque no estaban relacionadas con el resto de la información en el dataframe y además dicha información estaba en el archivo user_items.
