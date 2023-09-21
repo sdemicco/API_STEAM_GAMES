@@ -143,7 +143,7 @@ Sin embargo existe una limitación adicional relacionada con el plan desarrollad
 Una vez realizado el modelo de recomendación se incorporó a la aplicación desarrollada con Fast-Api, en un séptimo endpoint.
 ** Endpoint y ejemplo de respuesta:**
 
-* recomendacion (id de producto ): Ingresando el id de producto, retorna una lista con 5 juegos recomendados similares al ingresado.
+* recomendacion_juego (id de producto ): Ingresando el id de producto, retorna una lista con 5 juegos recomendados similares al ingresado.
 ```
 ["GRACE OF ZORDAN", "THE BANNER SAGA: FACTIONS","TACTICAL GENIUS ONLINE", "INFINITY WARS: ANIMATED TRADING CARD GAME","CHRONICLE: RUNESCAPE LEGENDS"]
 ```
