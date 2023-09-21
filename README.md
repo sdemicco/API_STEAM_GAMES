@@ -56,11 +56,23 @@ Terminada la limpieza de los dataframes realicé los uniones y agrupaciones nece
 2) FAST - API :  Desarrollo de la API local.<br>
 
 Se propone el desarrollo de una API para disponibilizar los datos de la empresa a través del framework FastAPI. 
-Presentando 6 endpoints, en el archivo 
+Presentando 6 endpoints, en el archivo [main.py](main.py)
 
 Primero se construyó la API de forma local y se configuraron las funciones necesarias para realizar las consultas, cargando la data desde los archivos 
+en [Datasets](Datasets)
 
-Estos endpoints son los siguientes:
+**Endpoints:**
+* userdata( User_id : str ): Debe devolver cantidad de dinero gastado por el usuario, el porcentaje de recomendación en base a reviews.recommend y cantidad de items.<br>
+
+* countreviews( YYYY-MM-DD y YYYY-MM-DD : str ): Cantidad de usuarios que realizaron reviews entre las fechas dadas y, el porcentaje de recomendación de los mismos en base a reviews.recommend.<br>
+  
+* genre( género : str ): Devuelve el puesto en el que se encuentra un género sobre el ranking de los mismos analizado bajo la columna PlayTimeForever.<br>
+
+* userforgenre( género : str ): Top 5 de usuarios con más horas de juego en el género dado, con su URL (del user) y user_id.<br>
+
+* def developer( desarrollador : str ): Cantidad de items y porcentaje de contenido Free por año según empresa desarrolladora.<br>
+
+* def sentiment_analysis( año : int ): Según el año de lanzamiento, se devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento.<br>
 
 
 
