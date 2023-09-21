@@ -50,10 +50,10 @@ user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinado
 - La fecha de posteo la convertí a formato datetime, y en dicha transformación se perdió informacion de fechas que no tenian año.
 - Generé la columna análisis de sentimiento utilizando la librería de Python "NLTK" (Natural Language Toolkit), que para cada comentario lo etiqueta en positivo, negativo o neutro.
 
-Terminada la limpieza de los dataframes realicé los uniones y agrupaciones necesarias de datos para poder generar los dataframes y las funciónes que luego compondran el archivo main.py de la API. [datasets](Datasets)
+Terminada la limpieza de los dataframes realicé los uniones y agrupaciones necesarias de datos para poder generar los dataframes y las funciónes que luego compondran el archivo main.py de la API. [Datasets](Datasets)
 
 
-2) FAST - API :  Desarrollo de la API local.<br>
+## 2) FAST - API :  Desarrollo de la API local.<br>
 
 Se propone el desarrollo de una API para disponibilizar los datos de la empresa a través del framework FastAPI. 
 Presentando 6 endpoints, en el archivo [main.py](main.py)
@@ -74,33 +74,11 @@ en [Datasets](Datasets)
 
 * def sentiment_analysis( año : int ): Según el año de lanzamiento, se devuelve una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento.<br>
 
+imagen fast-api
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- ## 2. EDA: analisis descriptivo y exploratorio previa al desarrollo del modelo de ML.<br>
+ ## 3. EDA: analisis descriptivo y exploratorio previa al desarrollo del modelo de ML.<br>
  
- ***
-
 En el analisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instacia realicé un análisis de los datos pero, con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
 
 Trabajé principalmente con el dataset df_steam que contenía la información de todas las características de cada videojuego. 
@@ -118,8 +96,8 @@ El EDA que realicé consta de lo siguente:<br>
      * La cantidad de items vendidos **si** presenta una relación con el genero de los mismos. Esto puede observarse en grafico de genero vs cantidad de items vendidos. Se observa que de acuerdo al genero se tienen diferentes consumos de juegos. Por lo tanto colcluyo que el género 
 es una variable relevante a lo hora de seleccionar un juego y la tomo como tentativa para el modelo de recomendación. Lo mismo ocurre con la columna Tags y Specs. La columna Tags contiene los géneros de los videojuegos y adicionalmente otras etiquetas. Por lo tanto la tomo en fuerte  consideración  para ser una variable contemplada en el modelo de recomendación.
 
-## 3. MODELO DE RECOMENDACIÓN ML
-***
+## 4. MODELO DE RECOMENDACIÓN ML
+
 El sistema de recomendación desarrolladó esta basado en contenidos (la recomendación se realiza a partir de información extraida de los items).
  Tipo item-item. <br>
 Se ingresa el nombre de un juego y debe devolver 5 juegos similares.
@@ -128,17 +106,14 @@ Para el desarrollo del modelo  utilicé la métrica similitud del coseno (Cosine
 Partiendo de un dataframe que contenga en las filas todos los items de videojuegos y en las columnas las caracteristicas que se quieren tener en cuenta para el modelo de recomendación, Scikit Learn es capaz de calcular de una vez la similitud coseno entre todas las filas.
 Del analisis EDA, pude identificar variables que considero relevantes para ser contempladas en el sistema de recomendación: Tags, Genero, Specs.
 Sin embargo existe una limitación adicional relacionada con las limitaciones del plan desarrollador gratuito de render que ofrece 512 MB de memoria de RAM. Teniendo en cuenta la baja disponibilidad de memoria, se desarrollo un modelo de recomendación basado en las etiquetas de los videjuegos (columna:Tags).
+Una vez realizado el modelo de recomendación se incroporo a la aplicación desarrollada con Fast-Api, en un septimo endpoint.
 
 
+## 5. DEPLOYMENT DE LA APLICACION CON FUNCIONES Y SISTEMA DE RECOMENDACIÓN
 
-
-
-
-
-
-
-
- Render toma el codigo del repositorio  y lo implementa en sus servidores
+Para hacer el despliegue de las funciones de la API que incluyen las consultas así como el sistema de recomendación de videoJuegos se utilizó Render. 
+Render toma el codigo del repositorio  y lo implementa en sus servidores.
+[Link a la APP wew](https://api-steam-deploy.onrender.com/docs#/)
 
 
 
