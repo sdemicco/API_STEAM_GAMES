@@ -19,7 +19,7 @@ a un resultado exitoso.:muscle:
 
 Etapas del proyecto:
 
-1.  ETL: Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.<br>
+1. ### [ ETL: Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.<br>](#id1)
 2. Desarrollo de la API local y carga al repositorio.<br>
 3. EDA: Análisis descriptivo y exploratorio previo al desarrollo del modelo de ML.<br>
 4. Desarrollo del modelo de recomendación ML. <br>
@@ -33,7 +33,7 @@ users_items.json.gz: Contiene por usuario cantidad de ítems que compró, y tiem
 user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinados ítems que compraron.<br>
 :point_right: [Archivos crudos](https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj)
 
- ## 1) ETL: Extracción transformación y Carga de datos:
+ ##  <a name="id1"></a> 1) ETL: Extracción transformación y Carga de datos: <a name="id1"></a>
  ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
  ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
