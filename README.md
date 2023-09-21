@@ -4,7 +4,7 @@
 
    
 ## Introducción:
-Este proyecto lo realicé en el marco de trabajo individual de Henry Data Science. Para realizarlo desempeñé el rol 
+Este proyecto lo realicé en el marco del trabajo individual de Henry Data Science. Para realizarlo desempeñé el rol 
 de DataSciencist manejando las tecnologias y herramientnas necesarias, y tambien aplicando el criterio para la toma de decisiones que conducen 
 a un resultado exitoso.:muscle:
 
