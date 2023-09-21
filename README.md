@@ -18,7 +18,7 @@ de DataScientist manejando las tecnologias y herramientnas necesarias, y tambié
 
 Etapas del proyecto:
 
-1. ### [ ETL: Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.<br>](#id1)
+1. ETL: Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.<br>
 2. Desarrollo de la API local y carga al repositorio.<br>
 3. EDA: Análisis descriptivo y exploratorio previo al desarrollo del modelo de ML.<br>
 4. Desarrollo del modelo de recomendación ML. <br>
