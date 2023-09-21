@@ -37,6 +37,9 @@ user_reviews.json.gz: Contiene reseñas de ítems por usuario.<br>
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
+
+ La notebook de ETL puede encontrarse en : :point_right: [ETL](Notebooks/ETL.ipynb)
+ 
  
 #### **steam_games:**
 - Eliminé las columnas ('items','user_id','steam_id','items_count') del archivo 'steam_games' porque no estaban relacionadas con el resto de la información en el dataframe y además dicha información estaba en el archivo user_items.
@@ -109,6 +112,8 @@ Primero construí la API de forma local configurando las funciones necesarias pa
  ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
+
+El análisis exploratorio de datos puede encontrarse en la notebook: :point_right: [EDA_ML](Notebooks/EDA_ML.ipynb)
  
 En el análisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instancia realicé un análisis de los datos ahora con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
 
@@ -156,6 +161,8 @@ Una vez realizado el modelo de recomendación se incorporó a la aplicación des
 Para hacer el despliegue de las funciones de la API que incluyen las consultas así como el sistema de recomendación de videoJuegos se utilizó Render. 
 Render toma el código del repositorio  y lo implementa en sus servidores.
 [Link a la APP web](https://api-steam-deploy.onrender.com/docs#/)
+
+## 5. Video con demostración del uso de la aplicación: :movie_camera:
 
 
 
