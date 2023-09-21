@@ -24,7 +24,7 @@ df_userforgenre=pd.read_parquet("Datasets/userforgenre_p")
 df_developer=pd.read_parquet("Datasets/developer_p")
 df_sentiment_analysis=pd.read_parquet("Datasets/sentiment_analysis_p")
 df_steam_final=pd.read_parquet("Datasets/df_steam_final_p")
-nombres= pd.read_parquet("Datasets/nombres_p")
+nombres= pd.read_parquet("Datasets/nombres_id_p")
 
 # Ruta funcion 1
 @app.get("/userdata/{user_id}", name = "userdata (user_id)")
@@ -134,14 +134,15 @@ async def sentiment_analysis(anio: str = Path(..., title="Query parameter exampl
     return dic
 
 #ruta funcion 7
-@app.get("/recomendacion/{juego}", name="juego")
-async def recomendacion(juego: str = Path(..., title="Query parameter example",description='Escribir en Mayuscula',example="IRONBOUND")):
+@app.get("/recomendacion_juego/{id}", name="id")
+async def recomendacion_juego(id: str = Path(..., title="Query parameter example",description='Escribir en Mayuscula',example="658870")):
     '''
     Se ingresa un nombre de un video juego y devuelve una lista de cinco 
     juegos similares que podrian gustarle al usuario
     '''
     # Indentifico el indice de la pelicula ingresada en caso que no lo encuentre tira un mensaje
-    juego_index=nombres[nombres['app_name']==juego]['index'] 
+    id=int(id)
+    juego_index=nombres[nombres['id']==id]['index'] 
     if juego_index.empty:
         return { 'error': 'Game not found' }  
     juego_index_valor = juego_index.iloc[0]
