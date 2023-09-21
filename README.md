@@ -13,25 +13,25 @@ de DataScientist manejando las tecnologias y herramientnas necesarias, y tambié
 
 ## Planificacion del proyecto:
 
-![Flujo](/assets/1.jpg)
+![Flujo](assets/Flujo_trabajo.png)
 
-Etapas del proyecto:
+### Etapas del proyecto:
 
-1. ETL: Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.<br>
+1. Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.(ETL)<br>
 2. Desarrollo de la API local y carga al repositorio.<br>
-3. EDA: Análisis descriptivo y exploratorio previo al desarrollo del modelo de ML.<br>
-4. Desarrollo del modelo de recomendación ML. <br>
+3. Análisis descriptivo y exploratorio previo al desarrollo del modelo de ML.(EDA)<br>
+4. Desarrollo del modelo de recomendación ML.(ML) <br>
 5. Incorporación del modelo de recomendación a la API <br>
-6. Deployment.<br>
+6. Virtualización y Deployment.<br>
 
 ## Punto de partida: Archivos
 Contaba con tres archivos con la siguiente información:<br>
 steam_games.json.gz: Contiene información descriptiva de cada ítem, como por ejemplo: precio, desarrollador, etc.<br>
-users_items.json.gz: Contiene por usuario cantidad de ítems que compró, y tiempo de juego por ítem.<br>
-user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinados ítems que compraron.<br>
+users_items.json.gz: Contiene ítems y tiempo de juego por ítem por usuario.<br>
+user_reviews.json.gz: Contiene reseñas de ítems por usuario.<br>
 :point_right: [Archivos crudos](https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj)
 
- ##  <a name="id1"></a> 1) ETL: Extracción transformación y Carga de datos: <a name="id1"></a>
+ ## 1) ETL: Extracción transformación y Carga de datos: <a name="id1"></a>
  ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
  ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
@@ -39,44 +39,41 @@ user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinado
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
  
 #### **steam_games:**
-- El archivo  steam_games tenía las columnas ('items','user_id','steam_id','items_count') que eliminé porque no estaban relacionadas con el resto de la información en el dataframe y además dicha información estaba en el archivo user_items.
+- Eliminé las columnas ('items','user_id','steam_id','items_count') del archivo 'steam_games' porque no estaban relacionadas con el resto de la información en el dataframe y además dicha información estaba en el archivo user_items.
 - Exploré valores nulos, y eliminé aquellas filas que tuvieran valores faltantes en todas las columnas.
-- Identifiqué los registros duplicados y decidí eliminarlos porque no aportan ninguna información adicional.
-- La columna precio además de valores numéricos, tenía cadenas de texto indicando en algunos casos si el juego era gratis. Reemplace los valores erroneos por valores nulos, los gratuitos por 0 y los que tenían alguna referencia al precio por el precio numérico. Luego lo pase a formato float.
-- La columna fecha de lanzamiento la pase a formato datetime.
-- Cree una columna que con el año de la fecha de lanzamiento del juego.
+- Identifiqué los registros duplicados y decidí eliminarlos porque no aportaban ninguna información adicional.
+- La columna 'precio' además de valores numéricos, tenía cadenas de texto indicando en algunos casos si el juego era gratis. Reemplacé los valores erróneos por valores nulos, los gratuitos por '0' y los que tenían alguna referencia al precio por el precio numérico. Luego lo pase a formato float.
+- La columna 'fecha de lanzamiento' la pase a formato datetime.
+- Creé una columna con el año de la fecha de lanzamiento del juego.
 
 #### **user_iems:**
-- Este archivo presentaba la columna items anidada, como tiene información valiosa, cree una función para desanidarla.
-- Luego de extraer items, analicé los nulos y eliminé solo las filas que tenían todas las columnas con valor nulo.
+- Este archivo presentaba la columna 'ítems' anidada, como tiene información valiosa, creé una función para desanidarla.
+- Luego de extraer 'ítems', analicé los nulos y eliminé sólo las filas que tenían todas las columnas con valor nulo.
 -  Analicé si tenia registros duplicados y luego los elimine.
 
-#### **User_reviws:**
-- Este archivo presentaba la columna reviews anidada, y como tiene información valiosa aplique la función para extraer la información.
+#### **User_reviews:**
+- Este archivo presentaba la columna 'reviews' anidada, y como tiene información valiosa apliqué la función para extraer la información.
 - Analicé nulos y duplicados y los eliminé siguiendo el mismo criterio que los archivos anteriores.
 - La fecha de posteo la convertí a formato datetime, y en dicha transformación se perdió informacion de fechas que no tenían año.
-- Generé la columna análisis de sentimiento utilizando la librería de Python "NLTK" (Natural Language Toolkit), que para cada comentario lo etiqueta en positivo, negativo o neutro.
-
+- Generé la columna 'análisis de sentimiento' utilizando la librería de Python "NLTK" (Natural Language Toolkit), que etiqueta cada comentario en positivo, negativo o neutro.
+  
 Terminada la limpieza de los dataframes realicé los uniones y agrupaciones necesarias de datos para poder generar los dataframes y las funciones que luego compondran el archivo main.py de la API. [Datasets](Datasets)
 
 
-## 2) FAST - API :  Desarrollo de la API local.<br>
+## 2) Desarrollo de la API local.FAST-API<br>
 ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![FAST_API](	https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white)<br>
 Desarrollé una API para disponibilizar los datos de la empresa a través del framework FastAPI. 
-La cual contiene 6 endpoints,y se pueden ver en el archivo [main.py](main.py)
+La cual contiene 6 endpoints y se pueden ver en el archivo [main.py](main.py)
 
-Primero construí la API de forma local configurando las funciones necesarias para realizar las consultas, y cargando la data desde los archivos  
-en :point_right:[Datasets](Datasets)
+Primero construí la API de forma local configurando las funciones necesarias para realizar las consultas, y cargando la data desde los archivos  en :point_right:[Datasets](Datasets)
 
 **Endpoints y ejemplo de respuestas:**
 * userdata( User_id : str ): Retorna cantidad de dinero gastado por el usuario, el porcentaje de recomendación en base a reviews.recommend y cantidad de items.<br>
-<br>
-
 ```
 {"dinero gastado": 3424.3099999999854,"porcecntaje_recom": 1.083032490974729,"cantidad_items": 277}
 ```
-* countreviews( YYYY-MM-DD y YYYY-MM-DD : str ):  Retorna Cantidad de usuarios que realizaron reviews entre las fechas dadas y, el porcentaje de recomendación de los mismos en base a reviews.recommend.<br>
+* countreviews( YYYY-MM-DD y YYYY-MM-DD : str ):  Retorna Cantidad de usuarios que realizaron reviews entre las fechas dadas y el porcentaje de recomendación de los mismos en base a reviews.recommend.<br>
 ```
 {"cantidad_usuarios": 517,"recomendacion": 0.9809523809523809}
 ```
@@ -92,28 +89,28 @@ en :point_right:[Datasets](Datasets)
   { "user_id": "Terminally-Chill", "url": "http://steamcommunity.com/id/Terminally-Chill"},
   { "user_id": "DownSyndromeKid","url":]
 ```
-* def developer( desarrollador : str ): Retorna la cantidad de items y porcentaje de contenido Free por año según empresa desarrolladora.<br>
+* developer( desarrollador : str ): Retorna la cantidad de items y porcentaje de contenido Free por año según empresa desarrolladora.<br>
 ```
 [{ "year": 1993,"porcentaje_free": 0 },
   {"year": 1996,"porcentaje_free": 0 },
   {"year": 1997,"porcentaje_free": 0 },
   {"year": 2000,"porcentaje_free": 0}]
 ```
-* def sentiment_analysis( año : int ): Según el año de lanzamiento, retorna una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento.<br>
+* sentiment_analysis( año : int ): Según el año de lanzamiento, retorna una lista con la cantidad de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento.<br>
 ```
 [{"año_posted": 2012,"positivo": 830,"negativo": 140,"neutral": 231 }]
 ```
 ![API](assets/pantalla_fast_api.jpg)
 
 
- ## 3. EDA: analisis descriptivo y exploratorio previa al desarrollo del modelo de ML.<br>
+ ## 3) Analisis descriptivo y exploratorio previo al desarrollo del modelo de ML.(EDA)<br>
  ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
  ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
  
-En el análisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instancia realicé un análisis de los datos pero, con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
+En el análisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instancia realicé un análisis de los datos ahora con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
 
 Trabajé principalmente con el dataset df_steam que contenía la información de todas las características de cada videojuego. 
 El EDA que realicé consta de lo siguiente:<br>
@@ -127,19 +124,19 @@ El EDA que realicé consta de lo siguiente:<br>
      * Tanto precio como fecha de lanzamiento no parecen tener relación con la cantidad de items vendidos de cada juego. Por lo tanto no sería una 
        variable relevante para la compra de un videojuego y por eso decido no tenerlos en cuenta en el modelo de recomendación.
             <br>
-     * La cantidad de items vendidos **si** presenta una relación con el género de los mismos. Esto puede observarse en grafico de género vs cantidad de items vendidos. Se observa que de acuerdo al género se tienen diferentes consumos de juegos. Por lo tanto puedo concluir que el género 
+     * La cantidad de items vendidos **sí** presenta una relación con el género de los mismos. Esto puede observarse en grafico de género vs cantidad de items vendidos. Se observa que de acuerdo al género se tienen diferentes consumos de juegos. Por lo tanto puedo concluir que el género 
 es una variable relevante a lo hora de seleccionar un juego y la tomo como tentativa para el modelo de recomendación. Lo mismo ocurre con la columna Tags y Specs. La columna Tags contiene los géneros de los videojuegos y adicionalmente otras etiquetas. Por lo tanto la tomo en fuerte  consideración  para ser una variable contemplada en el modelo de recomendación.
 
-## 4. MODELO DE RECOMENDACIÓN ML
+## 4. Modelo de aprendizaje automático de recomendación (ML)
 ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![sklearn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
 El sistema de recomendación desarrollado esta basado en contenidos (la recomendación se realiza a partir de información extraída de los ítems).
- Tipo item-item. <br>
-Se ingresa el nombre de un juego y debe devolver 5 juegos similares.
+ Tipo ítem-ítem. <br>
+Se ingresa el nombre de un videojuego y debe devolver 5 juegos similares.
 
 Para el desarrollo del modelo  utilicé la métrica similitud del coseno (Cosine Similarity) la cual permite cuantificar la similitud entre elementos. 
-Partiendo de un dataframe que contenga en las filas todos los items de videojuegos y en las columnas las características que se quieren tener en cuenta para el modelo de recomendación, Scikit Learn es capaz de calcular de una vez la similitud coseno entre todas las filas.
+Partiendo de un dataframe que contenga en las filas todos los ítems de videojuegos y en las columnas las características que se quieren tener en cuenta para el modelo de recomendación, Scikit Learn es capaz de calcular de una vez la similitud coseno entre todas las filas.
 Del análisis EDA, pude identificar variables que considero relevantes para ser contempladas en el sistema de recomendación: Tags, Genero, Specs.
 Sin embargo existe una limitación adicional relacionada con el plan desarrollador gratuito de render que ofrece 512 MB de memoria de RAM. Teniendo en cuenta la baja disponibilidad de memoria, se desarrolló un modelo de recomendación basado en las etiquetas de los videjuegos (columna:Tags).
 
@@ -151,7 +148,7 @@ Una vez realizado el modelo de recomendación se incorporó a la aplicación des
 ["GRACE OF ZORDAN", "THE BANNER SAGA: FACTIONS","TACTICAL GENIUS ONLINE", "INFINITY WARS: ANIMATED TRADING CARD GAME","CHRONICLE: RUNESCAPE LEGENDS"]
 ```
 
-## 5. DEPLOYMENT DE LA APLICACION CON FUNCIONES Y SISTEMA DE RECOMENDACIÓN
+## 5. Virtualizacion y deployment de la aplicación con funciones y sistema de recomendación.
 ![render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 ![SwAGGER](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
 ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
