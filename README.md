@@ -1,5 +1,4 @@
-# STEAM GAMES: SISTEMA DE RECOMENDACION Y DISPONIBILIZACIÓN DE DATOS EN WEB
-![icono](assets/Steam_icon.png)
+# STEAM GAMES: SISTEMA DE RECOMENDACION Y DISPONIBILIZACIÓN DE DATOS EN WEB <br> <img src="assets/Steam_icon.png" width="100">
 ***
 ## Introducción:
 Este proyecto lo realicé en el marco de trabajo individual de Henry Data Science. Para realizarlo desempeñé el rol 
