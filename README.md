@@ -31,7 +31,10 @@ users_items.json.gz: Contiene por usuario cantidad de items que compró, y tiemp
 user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinados items que compraron.<br>
 
  ## 1) ETL: Extracción transformación y Carga de datos:
- ***
+ ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+ ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
+ ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
+ ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
 **steam_games:**
 - El archivo  steam_games tenía las columnas ('items','user_id','steam_id','items_count') que eliminé porque no estaban relacionadas con el resto de la información en el dataframe y ademas dicha información estaba en el archivo user_items.
 - Exploré valores nulos, y eliminé aquellas filas que tuvieran valores faltantes en todas las columnas.
@@ -55,7 +58,8 @@ Terminada la limpieza de los dataframes realicé los uniones y agrupaciones nece
 
 
 ## 2) FAST - API :  Desarrollo de la API local.<br>
-
+![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![FAST_API](	https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white)<br>
 Se propone el desarrollo de una API para disponibilizar los datos de la empresa a través del framework FastAPI. 
 Presentando 6 endpoints, en el archivo [main.py](main.py)
 
@@ -79,6 +83,10 @@ imagen fast-api
 
 
  ## 3. EDA: analisis descriptivo y exploratorio previa al desarrollo del modelo de ML.<br>
+ ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+ ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
+ ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
+ ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
  
 En el analisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instacia realicé un análisis de los datos pero, con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
 
@@ -98,7 +106,9 @@ El EDA que realicé consta de lo siguente:<br>
 es una variable relevante a lo hora de seleccionar un juego y la tomo como tentativa para el modelo de recomendación. Lo mismo ocurre con la columna Tags y Specs. La columna Tags contiene los géneros de los videojuegos y adicionalmente otras etiquetas. Por lo tanto la tomo en fuerte  consideración  para ser una variable contemplada en el modelo de recomendación.
 
 ## 4. MODELO DE RECOMENDACIÓN ML
-
+![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![sklearn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+ ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
 El sistema de recomendación desarrolladó esta basado en contenidos (la recomendación se realiza a partir de información extraida de los items).
  Tipo item-item. <br>
 Se ingresa el nombre de un juego y debe devolver 5 juegos similares.
@@ -111,6 +121,9 @@ Una vez realizado el modelo de recomendación se incroporo a la aplicación desa
 
 
 ## 5. DEPLOYMENT DE LA APLICACION CON FUNCIONES Y SISTEMA DE RECOMENDACIÓN
+![render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
+![SwAGGER](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
+![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
 Para hacer el despliegue de las funciones de la API que incluyen las consultas así como el sistema de recomendación de videoJuegos se utilizó Render. 
 Render toma el codigo del repositorio  y lo implementa en sus servidores.
