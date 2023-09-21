@@ -13,7 +13,7 @@ de DataScientist manejando las tecnologias y herramientnas necesarias, y tambié
 
 ## Planificacion del proyecto:
 
-![Flujo](assets/1.jpg)
+![Flujo](/assets/1.jpg)
 
 Etapas del proyecto:
 
