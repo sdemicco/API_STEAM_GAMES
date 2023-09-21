@@ -39,7 +39,8 @@ user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinado
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
-**steam_games:**
+ 
+#### **steam_games:**
 - El archivo  steam_games tenía las columnas ('items','user_id','steam_id','items_count') que eliminé porque no estaban relacionadas con el resto de la información en el dataframe y además dicha información estaba en el archivo user_items.
 - Exploré valores nulos, y eliminé aquellas filas que tuvieran valores faltantes en todas las columnas.
 - Identifiqué los registros duplicados y decidí eliminarlos porque no aportan ninguna información adicional.
@@ -47,12 +48,12 @@ user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinado
 - La columna fecha de lanzamiento la pase a formato datetime.
 - Cree una columna que con el año de la fecha de lanzamiento del juego.
 
-**user_iems:**
+#### **user_iems:**
 - Este archivo presentaba la columna items anidada, como tiene información valiosa, cree una función para desanidarla.
 - Luego de extraer items, analicé los nulos y eliminé solo las filas que tenían todas las columnas con valor nulo.
 -  Analicé si tenia registros duplicados y luego los elimine.
 
-**User_reviws:**
+#### **User_reviws:**
 - Este archivo presentaba la columna reviews anidada, y como tiene información valiosa aplique la función para extraer la información.
 - Analicé nulos y duplicados y los eliminé siguiendo el mismo criterio que los archivos anteriores.
 - La fecha de posteo la convertí a formato datetime, y en dicha transformación se perdió informacion de fechas que no tenían año.
