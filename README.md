@@ -1,8 +1,7 @@
 
 # STEAM GAMES: SISTEMA DE RECOMENDACION Y DISPONIBILIZACIÓN DE DATOS EN WEB
-<div align="right">
-    <img src="/assets/Steam_icon.png" alt="Logotipo" width="100">
-</div>
+![Steam Badge](https://img.shields.io/badge/Steam-000?logo=steam&logoColor=fff&style=for-the-badge)
+
    
 ## Introducción:
 Este proyecto lo realicé en el marco de trabajo individual de Henry Data Science. Para realizarlo desempeñé el rol 
@@ -18,7 +17,7 @@ a un resultado exitoso.:muscle:
 
 ![Flujo de Trabajo](assets/Flujo_de_trabajo.jpg)
 
-Para el desarrollo del proyecto lo dividí en las siguientes etapas:
+Etapas del proyecto:
 
 1.  ETL: Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.<br>
 2. Desarrollo de la API local y carga al repositorio.<br>
@@ -35,6 +34,7 @@ user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinado
 :point_right: [Archivos crudos](https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj)
 
  ## 1) ETL: Extracción transformación y Carga de datos:
+ ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
  ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
@@ -67,7 +67,7 @@ Terminada la limpieza de los dataframes realicé los uniones y agrupaciones nece
 Desarrollé una API para disponibilizar los datos de la empresa a través del framework FastAPI. 
 La cual contiene 6 endpoints,y se pueden ver en el archivo [main.py](main.py)
 
-Primero se construyó la API de forma local y se configuraron las funciones necesarias para realizar las consultas, cargando la data desde los archivos 
+Primero construí la API de forma local configurando las funciones necesarias para realizar las consultas, y cargando la data desde los archivos  
 en :point_right:[Datasets](Datasets)
 
 **Endpoints y ejemplo de respuestas:**
@@ -110,6 +110,7 @@ en :point_right:[Datasets](Datasets)
  ## 3. EDA: analisis descriptivo y exploratorio previa al desarrollo del modelo de ML.<br>
  ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
+ ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
  
@@ -141,9 +142,15 @@ Se ingresa el nombre de un juego y debe devolver 5 juegos similares.
 Para el desarrollo del modelo  utilicé la métrica similitud del coseno (Cosine Similarity) la cual permite cuantificar la similitud entre elementos. 
 Partiendo de un dataframe que contenga en las filas todos los items de videojuegos y en las columnas las caracteristicas que se quieren tener en cuenta para el modelo de recomendación, Scikit Learn es capaz de calcular de una vez la similitud coseno entre todas las filas.
 Del analisis EDA, pude identificar variables que considero relevantes para ser contempladas en el sistema de recomendación: Tags, Genero, Specs.
-Sin embargo existe una limitación adicional relacionada con las limitaciones del plan desarrollador gratuito de render que ofrece 512 MB de memoria de RAM. Teniendo en cuenta la baja disponibilidad de memoria, se desarrollo un modelo de recomendación basado en las etiquetas de los videjuegos (columna:Tags).
-Una vez realizado el modelo de recomendación se incroporo a la aplicación desarrollada con Fast-Api, en un septimo endpoint.
+Sin embargo existe una limitación adicional relacionada con el plan desarrollador gratuito de render que ofrece 512 MB de memoria de RAM. Teniendo en cuenta la baja disponibilidad de memoria, se desarrolló un modelo de recomendación basado en las etiquetas de los videjuegos (columna:Tags).
 
+Una vez realizado el modelo de recomendación se incroporó a la aplicación desarrollada con Fast-Api, en un septimo endpoint.
+** Endpoint y ejemplo de respuesta:**
+
+* recomendacion_juego( id de producto ): Ingresando el id de producto, retorna una lista con 5 juegos recomendados similares al ingresado.
+```
+["GRACE OF ZORDAN", "THE BANNER SAGA: FACTIONS","TACTICAL GENIUS ONLINE", "INFINITY WARS: ANIMATED TRADING CARD GAME","CHRONICLE: RUNESCAPE LEGENDS"]
+```
 
 ## 5. DEPLOYMENT DE LA APLICACION CON FUNCIONES Y SISTEMA DE RECOMENDACIÓN
 ![render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
