@@ -1,5 +1,9 @@
-# STEAM GAMES: SISTEMA DE RECOMENDACION Y DISPONIBILIZACIÓN DE DATOS EN WEB <br> <img src="assets/Steam_icon.png" width="100">
-***
+
+# STEAM GAMES: SISTEMA DE RECOMENDACION Y DISPONIBILIZACIÓN DE DATOS EN WEB
+<div align="right">
+    <img src="/assets/Steam_icon.png" alt="Logotipo" width="100">
+</div>
+   
 ## Introducción:
 Este proyecto lo realicé en el marco de trabajo individual de Henry Data Science. Para realizarlo desempeñé el rol 
 de DataSciencist manejando las tecnologias y herramientnas necesarias, y tambien aplicando el criterio para la toma de decisiones que conducen 
@@ -8,7 +12,6 @@ a un resultado exitoso.:muscle:
 ## Objetivo:
 :dart: Desarrollar un sistema de recomendación de videjojuegos para plataforma Steam Games.<br>
 :dart: Disponibilizar los datos de Steam Games mediante una API web para permitir su consumo desde la web.
-***
 
 ## Planificacion del desarrollo de proyecto:
 
@@ -16,18 +19,20 @@ a un resultado exitoso.:muscle:
 ![Flujo de Trabajo](assets/Flujo_de_trabajo.jpg)
 
 Para el desarrollo del proyecto lo dividí en las siguientes etapas:
-> ETL: Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.<br>
-> Desarrollo de la API local y carga al repositorio.<br>
-> EDA: Análisis descriptivo y exploratorio previo al desarrollo del modelo de ML.<br>
-> Desarrollo del modelo de recomendación ML. <br>
-> Incorporación del modelo de recomendación a la API <br>
-> Deployment.<br>
+
+1.  ETL: Ingeniería de datos, extracción, exploración, transformación de datos y  desarrollo de funciones para consultas de la API.<br>
+2. Desarrollo de la API local y carga al repositorio.<br>
+3. EDA: Análisis descriptivo y exploratorio previo al desarrollo del modelo de ML.<br>
+4. Desarrollo del modelo de recomendación ML. <br>
+5. Incorporación del modelo de recomendación a la API <br>
+6. Deployment.<br>
 
 ## Punto de partida: Archivos
 Contaba con tres archivos con las siguiente información:<br>
 steam_games.json.gz: Contiene información descriptiva de cada ítem, como por ejemplo: precio, desarrollador, etc.<br>
 users_items.json.gz: Contiene por usuario cantidad de ítems que compró, y tiempo de juego por ítem.<br>
 user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinados ítems que compraron.<br>
+:point_right: [Archivos crudos](https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj)
 
  ## 1) ETL: Extracción transformación y Carga de datos:
  ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
@@ -63,7 +68,7 @@ Desarrollé una API para disponibilizar los datos de la empresa a través del fr
 La cual contiene 6 endpoints,y se pueden ver en el archivo [main.py](main.py)
 
 Primero se construyó la API de forma local y se configuraron las funciones necesarias para realizar las consultas, cargando la data desde los archivos 
-en [Datasets](Datasets)
+en :point_right:[Datasets](Datasets)
 
 **Endpoints y ejemplo de respuestas:**
 * userdata( User_id : str ): Retorna cantidad de dinero gastado por el usuario, el porcentaje de recomendación en base a reviews.recommend y cantidad de items.<br>
@@ -99,7 +104,7 @@ en [Datasets](Datasets)
 ```
 [{"año_posted": 2012,"positivo": 830,"negativo": 140,"neutral": 231 }]
 ```
-imagen fast-api
+![API](assets/pantalla_fast_api.jpg)
 
 
  ## 3. EDA: analisis descriptivo y exploratorio previa al desarrollo del modelo de ML.<br>
