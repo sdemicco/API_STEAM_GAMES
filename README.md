@@ -11,7 +11,7 @@ de DataScientist manejando las tecnologias y herramientnas necesarias, y tambié
 :dart: Desarrollar un sistema de recomendación de videjojuegos para plataforma Steam Games.<br>
 :dart: Disponibilizar los datos de Steam Games mediante una API web para permitir su consumo desde la web.
 
-## Planificacion del desarrollo de proyecto:
+## Planificacion del proyecto:
 
 
 ![Flujo de Trabajo](assets/Flujo_de_trabajo.jpg)
