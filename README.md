@@ -27,7 +27,7 @@ Etapas del proyecto:
 6. Deployment.<br>
 
 ## Punto de partida: Archivos
-Contaba con tres archivos con las siguiente información:<br>
+Contaba con tres archivos con la siguiente información:<br>
 steam_games.json.gz: Contiene información descriptiva de cada ítem, como por ejemplo: precio, desarrollador, etc.<br>
 users_items.json.gz: Contiene por usuario cantidad de ítems que compró, y tiempo de juego por ítem.<br>
 user_reviews.json.gz: Contiene reseñas que realizaron usuarios para determinados ítems que compraron.<br>
@@ -115,37 +115,37 @@ en :point_right:[Datasets](Datasets)
  ![Pandas](	https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
  
-En el analisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instacia realicé un análisis de los datos pero, con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
+En el análisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instancia realicé un análisis de los datos pero, con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
 
 Trabajé principalmente con el dataset df_steam que contenía la información de todas las características de cada videojuego. 
-El EDA que realicé consta de lo siguente:<br>
+El EDA que realicé consta de lo siguiente:<br>
 
-1.  :wrench: Acondicionamiento de datos: eliminar columnas con informacion no relevante para el modelo, imputar de valores que considero que podrían tener valor para el modelo, eliminar registros de donde el item estuviera duplicado.<br>
+1.  :wrench: Acondicionamiento de datos: eliminar columnas con información no relevante para el modelo, imputar de valores que considero que podrían tener valor para el modelo, eliminar registros de donde el ítem estuviera duplicado.<br>
      <br>
-2. :mag: Análisis de variables numéricas (distribución de datos antes y despues de imputar precio, detección de outliers etc) y categóricas (cantidad de datos por categoría de cada variable categórica etc.)<br>
+2. :mag: Análisis de variables numéricas (distribución de datos antes y después de imputar precio, detección de outliers etc) y categóricas (cantidad de datos por categoría de cada variable categórica etc.)<br>
      <br>
-3.  :bar_chart: Relación entre las características de los videojuegos y el consumo de los mismos. Para eso uní a la informacion de características de los videojuegos *df_steam* la información de consumo por usuario de *user_items*.De este analisis llegue a las siguientes conclusiones:<br>
+3.  :bar_chart: Relación entre las características de los videojuegos y el consumo de los mismos. Para eso uní a la información de características de los videojuegos *df_steam* la información de consumo por usuario de *user_items*.De este análisis llegue a las siguientes conclusiones:<br>
       <br>
      * Tanto precio como fecha de lanzamiento no parecen tener relación con la cantidad de items vendidos de cada juego. Por lo tanto no sería una 
        variable relevante para la compra de un videojuego y por eso decido no tenerlos en cuenta en el modelo de recomendación.
             <br>
-     * La cantidad de items vendidos **si** presenta una relación con el genero de los mismos. Esto puede observarse en grafico de genero vs cantidad de items vendidos. Se observa que de acuerdo al genero se tienen diferentes consumos de juegos. Por lo tanto colcluyo que el género 
+     * La cantidad de items vendidos **si** presenta una relación con el género de los mismos. Esto puede observarse en grafico de género vs cantidad de items vendidos. Se observa que de acuerdo al género se tienen diferentes consumos de juegos. Por lo tanto puedo concluir que el género 
 es una variable relevante a lo hora de seleccionar un juego y la tomo como tentativa para el modelo de recomendación. Lo mismo ocurre con la columna Tags y Specs. La columna Tags contiene los géneros de los videojuegos y adicionalmente otras etiquetas. Por lo tanto la tomo en fuerte  consideración  para ser una variable contemplada en el modelo de recomendación.
 
 ## 4. MODELO DE RECOMENDACIÓN ML
 ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![sklearn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
  ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)<br>
-El sistema de recomendación desarrolladó esta basado en contenidos (la recomendación se realiza a partir de información extraida de los items).
+El sistema de recomendación desarrollado esta basado en contenidos (la recomendación se realiza a partir de información extraída de los ítems).
  Tipo item-item. <br>
 Se ingresa el nombre de un juego y debe devolver 5 juegos similares.
 
 Para el desarrollo del modelo  utilicé la métrica similitud del coseno (Cosine Similarity) la cual permite cuantificar la similitud entre elementos. 
-Partiendo de un dataframe que contenga en las filas todos los items de videojuegos y en las columnas las caracteristicas que se quieren tener en cuenta para el modelo de recomendación, Scikit Learn es capaz de calcular de una vez la similitud coseno entre todas las filas.
-Del analisis EDA, pude identificar variables que considero relevantes para ser contempladas en el sistema de recomendación: Tags, Genero, Specs.
+Partiendo de un dataframe que contenga en las filas todos los items de videojuegos y en las columnas las características que se quieren tener en cuenta para el modelo de recomendación, Scikit Learn es capaz de calcular de una vez la similitud coseno entre todas las filas.
+Del análisis EDA, pude identificar variables que considero relevantes para ser contempladas en el sistema de recomendación: Tags, Genero, Specs.
 Sin embargo existe una limitación adicional relacionada con el plan desarrollador gratuito de render que ofrece 512 MB de memoria de RAM. Teniendo en cuenta la baja disponibilidad de memoria, se desarrolló un modelo de recomendación basado en las etiquetas de los videjuegos (columna:Tags).
 
-Una vez realizado el modelo de recomendación se incroporó a la aplicación desarrollada con Fast-Api, en un septimo endpoint.
+Una vez realizado el modelo de recomendación se incorporó a la aplicación desarrollada con Fast-Api, en un séptimo endpoint.
 ** Endpoint y ejemplo de respuesta:**
 
 * recomendacion_juego( id de producto ): Ingresando el id de producto, retorna una lista con 5 juegos recomendados similares al ingresado.
@@ -159,8 +159,8 @@ Una vez realizado el modelo de recomendación se incroporó a la aplicación des
 ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
 Para hacer el despliegue de las funciones de la API que incluyen las consultas así como el sistema de recomendación de videoJuegos se utilizó Render. 
-Render toma el codigo del repositorio  y lo implementa en sus servidores.
-[Link a la APP wew](https://api-steam-deploy.onrender.com/docs#/)
+Render toma el código del repositorio  y lo implementa en sus servidores.
+[Link a la APP web](https://api-steam-deploy.onrender.com/docs#/)
 
 
 
