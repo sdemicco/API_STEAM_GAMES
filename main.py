@@ -62,7 +62,7 @@ async def countreviews(fecha_inicio: str = Path(..., title="Query parameter exam
     
     # Calcula cantidad de usuarios y porcentaje de recomendacion
     cantidad_usuarios = df_filtrado['user_id'].nunique()
-    recomendacion = df_filtrado['recommend'].sum()/df_filtrado['recommend'].count()
+    recomendacion = (df_filtrado['recommend'].sum()/df_filtrado['recommend'].count())*100
    
     # Retorna los valores promedio calculados
     return {'cantidad_usuarios': cantidad_usuarios,'recomendacion': recomendacion}
