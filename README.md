@@ -31,7 +31,7 @@ users_items.json.gz: Contiene ítems y tiempo de juego por ítem por usuario.<br
 user_reviews.json.gz: Contiene reseñas de ítems por usuario.<br>
 :point_right: [Archivos crudos](https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj)
 
- ## 1) ETL: Extracción transformación y Carga de datos: <a name="id1"></a>
+ ## 1) ETL: Extracción transformación y carga de datos: <a name="id1"></a>
  ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
  ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
@@ -103,7 +103,7 @@ Primero construí la API de forma local configurando las funciones necesarias pa
 ![API](assets/pantalla_fast_api.jpg)
 
 
- ## 3) Analisis descriptivo y exploratorio previo al desarrollo del modelo de ML.(EDA)<br>
+ ## 3) Análisis descriptivo y exploratorio previo al desarrollo del modelo de ML.(EDA)<br>
  ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
  ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
  ![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=for-the-badge)
@@ -148,7 +148,7 @@ Una vez realizado el modelo de recomendación se incorporó a la aplicación des
 ["GRACE OF ZORDAN", "THE BANNER SAGA: FACTIONS","TACTICAL GENIUS ONLINE", "INFINITY WARS: ANIMATED TRADING CARD GAME","CHRONICLE: RUNESCAPE LEGENDS"]
 ```
 
-## 5. Virtualizacion y deployment de la aplicación con funciones y sistema de recomendación.
+## 5. Virtualización y deployment de la aplicación con funciones y sistema de recomendación.
 ![render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
 ![SwAGGER](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
 ![VSCODE](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
