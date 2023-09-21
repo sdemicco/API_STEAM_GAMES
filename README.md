@@ -64,7 +64,19 @@ User_reviws:
 - La fecha de posteo se pasó a formato datetime, y en dicha transformación se perdió informacion de fechas que no tenian año.
 - Genre la columna análisis de sentimiento utilizando la librería de Python "NLTK" (Natural Language Toolkit), que para cada comentario lo etiqueta en positivo, negativo o neutro.
 
-Terminada la limpieza de los dataframes realicé los uniones y agrupaciones necesarias de datos para poder generar los dataframes y las funciónes que luego compondran el archivo main.py de la API.
+Terminada la limpieza de los dataframes realicé los uniones y agrupaciones necesarias de datos para poder generar los dataframes y las funciónes que luego compondran el archivo main.py de la API. [datasets](Datasets)
+
+ ## 2. EDA: analisis descriptivo y exploratorio previa al desarrollo del modelo de ML.<br>
+ ***
+En el analisis anterior (ETL) realicé una primera exploración de lo datos, junto con la limpieza y transformaciones necesarias para construir las primeras 6 consultas de la API. En esta instacia realicé un análisis de los datos pero, con el objetivo de explorarlos para construir a partir de los mismos el modelo de recomendación de videojuegos.<br>
+Trabajé principalmente con el dataset df_steam que contenía la informacion de todas las caracteristicas de cada videojuego. 
+El EDA que realicé consta de lo siguente:<br>
+> Accondicionamiento de datos: eliminar columnas con informacion no relevante para el modelo, imputar de valores que considero que podrian tener valor para el modelo, eliminar registros de donde el item estuviera duplicado.<br>
+> Análisis de variables númericas (distribucion de datos antes y despues de imputar precio, detección de outliers etc) y categoricas (cantidad de datos por categoria de cada variable categorica etc.)<br>
+> Relacion entre las caracteristicas de los videojuegos y el consumo de los mismos. Para eso uní a la informacion de caracteristicas de los videojuegos *df_steam* la información de consumo por usuario de *user_items*.<br>
+> De este analisis llegue a las siguientes conclusiones:
+   > Tanto precio como fecha de lanzamiento no parecen tener relación con la cantidad de items vendidos de cada juego. Por lo tanto no sería una variable relevante para la compra de un videojuego y por eso decido no tenerlos en cuenta en el modelo de recomendación.>> 
+   > La cantidad de items vendidos si presenta una relación con el genero de los mismos. Esto puede observarse en grafico de frecuencias de genero vs cantidad de items vendidos. Se observa que de acuerdo al genero se tienen diferentes consumos de juegos. Por lo tanto colcluyo que el genero es una variable relevante a lo hora de seleccionar un juego y la tomo como tentativa para el modelo de recomendación. Lo mismo ocurre con la columna Tags y Specs. La columna Tags contiene los géneros de los videojuegos y adicionalmente otras etiquetas. Por lo tanto tiene varias fichas para ser la variable del modelo de recomendación.
 
 
 
