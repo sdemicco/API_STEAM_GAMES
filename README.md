@@ -146,7 +146,8 @@ Del análisis EDA, pude identificar variables que considero relevantes para ser 
 Sin embargo existe una limitación adicional relacionada con el plan desarrollador gratuito de render que ofrece 512 MB de memoria de RAM. Teniendo en cuenta la baja disponibilidad de memoria, se desarrolló un modelo de recomendación basado en las etiquetas de los videjuegos (columna:Tags).
 
 Una vez realizado el modelo de recomendación se incorporó a la aplicación desarrollada con Fast-Api, en un séptimo endpoint.
-** Endpoint y ejemplo de respuesta:**
+
+**Endpoint y ejemplo de respuesta:**
 
 * recomendacion_juego (id de producto ): Ingresando el id de producto, retorna una lista con 5 juegos recomendados similares al ingresado.
 ```
@@ -163,7 +164,7 @@ Render toma el código del repositorio  y lo implementa en sus servidores.
 [Link a la APP web](https://api-steam-deploy.onrender.com/)
 
 ## 5. Video con demostración del uso de la aplicación: :movie_camera:
-
+[link al video](https://youtu.be/vna1fxo7sjc)
 
 
 
