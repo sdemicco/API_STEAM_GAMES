@@ -163,7 +163,7 @@ Para hacer el despliegue de las funciones de la API que incluyen las consultas a
 Render toma el código del repositorio  y lo implementa en sus servidores.
 [Link a la APP web](https://api-steam-deploy.onrender.com/)
 
-## 5. Video con demostración del uso de la aplicación: :movie_camera:
+## 6. Video con demostración del uso de la aplicación: :movie_camera:
 [link al video](https://youtu.be/vna1fxo7sjc)
 
 
